@@ -5,36 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="../dist/style/layout.min.css">
 </head>
 <body>
     <form action="">
-        <div>
-            <h2>3.能用 JS 將 Form 的提交內容的同時也新增至 Table 內嗎？</h2>
+        <div class="container">
+            <div>
+                <h2>3.能用 JS 將 Form 的提交內容的同時也新增至 Table 內嗎？</h2>
+            </div>
+            <div class="input__list">
+                <input class="input__item js_class" type="text" name="class" placeholder="班級" autocomplete="off">
+                <input class="input__item js_number" type="text" name="number" placeholder="學號" autocomplete="off">
+                <input class="input__item js_name" type="text" name="name" placeholder="姓名" autocomplete="off">
+                <input class="input__item js_score" type="text" name="score" placeholder="分數" autocomplete="off">
+                <input class="input__send js_send" type="button" value="Send">
+            </div>
+            <table class="table__list">
+                <tr>
+                    <th>班級</th>
+                    <th>學號</th>
+                    <th>姓名</th>
+                    <th>分數</th>
+                </tr>
+            </table>
         </div>
-        <div>
-            <input class="js_class" type="text" name="class" placeholder="班級" autocomplete="off">
-            <input class="js_number" type="text" name="number" placeholder="學號" autocomplete="off">
-            <input class="js_name" type="text" name="name" placeholder="姓名" autocomplete="off">
-            <input class="js_score" type="text" name="score" placeholder="分數" autocomplete="off">
-            <input class="js_send" type="button" value="Send">
-        </div>
-        <table class="table_list">
-            <tr>
-                <th>班級</th>
-                <th>學號</th>
-                <th>姓名</th>
-                <th>分數</th>
-            </tr>
-        </table>
     </form>
-    <script>
-        js_class = document.querySelector('.js_class');
+        <script>
+            js_class = document.querySelector('.js_class');
         js_number = document.querySelector('.js_number');
         js_name = document.querySelector('.js_name');
         js_score = document.querySelector('.js_score');
         js_send = document.querySelector('.js_send');
 
-        table_list = document.querySelector('.table_list');
+        table__list = document.querySelector('.table__list');
 
         // 設定資料(陣列)初始值
         const data = [];
@@ -63,7 +67,7 @@
                 </tr>`;
 
             // 設定固定第一列
-            table_list.innerHTML = first_content;
+            table__list.innerHTML = first_content;
 
             data_content.class = js_class.value;
             data_content.number = js_number.value;
@@ -102,9 +106,8 @@
             });
 
             // 將最終結果的str賦予到table
-            table_list.innerHTML += str; 
+            table__list.innerHTML += str; 
         };
-
-    </script>
+        </script>
 </body>
 </html>

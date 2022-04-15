@@ -1,0 +1,67 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.input__list {
+  width: 300px;
+  margin-left: auto;
+}
+
+@media (max-width: 769px) {
+  .input__list {
+    width: 100%;
+  }
+}
+
+.input__item {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input__send {
+  width: 100%;
+}
+
+.table__list {
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-all;
+  border: 1px solid;
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+
+.table__list > tbody > tr > th {
+  text-align: left;
+  width: 25%;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  padding: 5px;
+}
+
+.table__list > tbody > tr > td {
+  border-bottom: 1px solid #000000;
+  padding: 5px;
+}
+
+.table__list > tbody > tr > td:nth-child(n) {
+  background-color: #30fff7;
+}
+
+.table__list > tbody > tr > td:nth-child(2n) {
+  background-color: #59feab;
+}
+/*# sourceMappingURL=layout.css.map */
