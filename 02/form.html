@@ -33,81 +33,80 @@
     </form>
         <script>
             js_class = document.querySelector('.js_class');
-        js_number = document.querySelector('.js_number');
-        js_name = document.querySelector('.js_name');
-        js_score = document.querySelector('.js_score');
-        js_send = document.querySelector('.js_send');
+            js_number = document.querySelector('.js_number');
+            js_name = document.querySelector('.js_name');
+            js_score = document.querySelector('.js_score');
+            js_send = document.querySelector('.js_send');
 
-        table__list = document.querySelector('.table__list');
+            table__list = document.querySelector('.table__list');
 
-        // 設定資料(陣列)初始值
-        const data = [];
-        
-        js_send.addEventListener('click', () => {
-            // 設定物件初始值
-            const data_content = {};
-
-            if(
-                js_class.value === '' || 
-                js_number.value === '' || 
-                js_name.value === '' || 
-                js_score.value === ''){
-
-                alert('欄位內容不得為空');
-                return;
-            }
-
-
-            let first_content = `
-                <tr>
-                    <th>班級</th>
-                    <th>學號</th>
-                    <th>姓名</th>
-                    <th>分數</th>
-                </tr>`;
-
-            // 設定固定第一列
-            table__list.innerHTML = first_content;
-
-            data_content.class = js_class.value;
-            data_content.number = js_number.value;
-            data_content.name = js_name.value;
-            data_content.score = js_score.value;
+            // 設定資料(陣列)初始值
+            const data = [];
             
-            // 將每次Send後的資料存到data
-            data.push(data_content);
-            
-            // 遍歷data
-            updateData();
+            js_send.addEventListener('click', () => {
+                // 設定物件初始值
+                const data_content = {};
 
-            // 每次Send後清空欄位
-            js_class.value = "";
-            js_number.value = "";
-            js_name.value = "";
-            js_score.value = "";
-        });
-        
-        function updateData(){
-            // 設定字串初始值
-            let str = '';
+                if(
+                    js_class.value === '' || 
+                    js_number.value === '' || 
+                    js_name.value === '' || 
+                    js_score.value === ''){
 
-            // 遍歷data資料
-            data.forEach((item) => {
-                let content = `
+                    alert('欄位內容不得為空');
+                    return;
+                }
+
+                let first_content = `
                     <tr>
-                        <td>${item.class}</td>
-                        <td>${item.number}</td>
-                        <td>${item.name}</td>
-                        <td>${item.score}</td>
+                        <th>班級</th>
+                        <th>學號</th>
+                        <th>姓名</th>
+                        <th>分數</th>
                     </tr>`;
 
-                // 將每次取出的資料加入str
-                str += content;
-            });
+                // 設定固定第一列
+                table__list.innerHTML = first_content;
 
-            // 將最終結果的str賦予到table
-            table__list.innerHTML += str; 
-        };
+                data_content.class = js_class.value;
+                data_content.number = js_number.value;
+                data_content.name = js_name.value;
+                data_content.score = js_score.value;
+                
+                // 將每次Send後的資料存到data
+                data.push(data_content);
+                
+                // 遍歷data
+                updateData();
+
+                // 每次Send後清空欄位
+                js_class.value = "";
+                js_number.value = "";
+                js_name.value = "";
+                js_score.value = "";
+            });
+        
+            function updateData(){
+                // 設定字串初始值
+                let str = '';
+
+                // 遍歷data資料
+                data.forEach((item) => {
+                    let content = `
+                        <tr>
+                            <td>${item.class}</td>
+                            <td>${item.number}</td>
+                            <td>${item.name}</td>
+                            <td>${item.score}</td>
+                        </tr>`;
+
+                    // 將每次取出的資料加入str
+                    str += content;
+                });
+
+                // 將最終結果的str賦予到table
+                table__list.innerHTML += str; 
+            };
         </script>
 </body>
 </html>
